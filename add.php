@@ -6,6 +6,12 @@
 </head>
 
 <body>
+	<a href="index.php">index.php</a><br>
+	<a href="add.php">add.php</a><br>
+	<a href="phrase_add.php">phrase_add.php</a><br>
+	<a href="test.txt" target="_blank"#>text.txt</a><br>
+	<br>
+	
 	<form action="index.php" method="get">
 		<strong>Name</strong><br>
 		<input type="text" name="name"><br>
