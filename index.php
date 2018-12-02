@@ -3,19 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title>Unbenanntes Dokument</title>
+	<?php include('inc.php'); ?>
 </head>
 
 <body>
-	<a href="index.php">index.php</a><br>
-	<a href="add.php">add.php</a><br>
-	<a href="phrase_add.php">phrase_add.php</a><br>
-	<a href="test.txt" target="_blank"#>text.txt</a><br>
-	<br>
+<?php
+	nav();
 	
-	<?php
-	echo $_GET['name'].' '.$_GET['gruss'];
+	if(empty($_GET['name'])) {
+		die('Du hast dein Namen vergessen!');
+	}
+	else {
+		echo 'Guten Tag '.$_GET['name'].'<p>';
+		file_put_contents('test.txt',$_GET['name'], FILE_APPEND);
+	}
 		
-	echo $_GET['unfug-0'].' '.$_GET['unfug-1'].' '.$_GET['unfug-2'];
+	echo $_GET['name'].' '.$_GET['unfug-0'].' '.$_GET['unfug-1'].' '.$_GET['unfug-2'];
 	
 	$text = urldecode($_REQUEST['unfug-0']).' '.urldecode($_REQUEST['unfug-1']).' '.urldecode($_REQUEST['unfug-2'])."\n";
 	
@@ -23,7 +26,7 @@
 		
 	file_put_contents('test.txt', $text, FILE_APPEND);
 	
-	$myText = file_get_contents('test.txt', FILE_IGNORE_NEW_LINES);
+	$myText = file_get_contents('test.txt', FILE_APPEND);
 	
 	echo '<br>
 	<br> <strong>Ausgabe Textdokument</strong><br>';
@@ -32,6 +35,7 @@
 	{
 		echo $textausgabe;
 	}
+	
 		
 	?>
 </body>

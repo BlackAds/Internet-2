@@ -3,17 +3,16 @@
 <head>
 <meta charset="utf-8">
 <title>Unbenanntes Dokument</title>
+	<?php include('inc.php'); ?>
 </head>
 
 <body>
-	<a href="index.php">index.php</a><br>
-	<a href="add.php">add.php</a><br>
-	<a href="phrase_add.php">phrase_add.php</a><br>
-	<a href="test.txt" target="_blank"#>text.txt</a><br>
-	<br>
+<?php nav(); ?>
 	
 	<form action="index.php" method="get">
-
+		<strong>Name</strong><br>
+		<input type="text" name="name"><br>
+		<br>
 		<strong>I Say YES! to...</strong><br>
 		<select name="unfug-0">
 			<option selected>unfug_0</option>
