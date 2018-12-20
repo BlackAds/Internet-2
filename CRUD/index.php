@@ -85,33 +85,34 @@
 					
 				<div class="field">
 				<select name="phrase1" style="width: 100%">
-                  <option value="wohldosierte">wohldosierte</option>
-                  <option value="virtuose">virtuose</option>
-                  <option value="fehlerfreie und größtartige">fehlerfreie und größtartige</option>
-                  <option value="krasse">krasse</option>
-                  <option value="paranormale">paranormale</option>
-                  <option value="exponentielle">exponentielle</option>
+                  <option value="unruhig">unruhig</option>
+                  <option value="zweischneidig">zweischneidig</option>
+                  <option value="synthetisch">synthetisch</option>
+                  <option value="stilvoll">stilvoll</option>
+                  <option value="schmutzig">schmutzig</option>
+                  <option value="strategisch">strategisch</option>
                 </select>
 				</div> <!-- /field -->
 					
 				<div class="field">
 				<select name="phrase2" style="width: 100%">
-                  <option value="Fortschritts">Fortschritts</option>
-                  <option value="Schnitzel">Schnitzel</option>
-                  <option value="HdM">HdM</option>
-                  <option value="Schnittfeld">Schnittfeld</option>
-                  <option value="Kinderfaschings-">Kinderfaschings</option>
+                  <option value="den Vorsprung">den Vorsprung</option>
+                  <option value="die Mobilität">die Mobilität</option>
+                  <option value="die hohe Flugebene">die hohe Flugebene</option>
+                  <option value="die Schnittstellen">die Schnittstellen</option>
+                  <option value="die Glatze">die Glatze</option>
+					<option value="die Win-Win-Situation">die Win-Win-Situation</option>
                 </select>
 				</div> <!-- /field -->
 					
 				<div class="field">
 				<select name="phrase3" style="width: 100%">
-                  <option value="Verdopplung">Verdopplung</option>
-                  <option value="Enthaarung">Enthaarung</option>
-                  <option value="Vorhersage">Vorhersage</option>
-                  <option value="System">System</option>
-                  <option value="Korruption">Korruption</option>
-                  <option value="mit Pommes">mit Pommes</option>
+                  <option value="recyclen">recyclen</option>
+                  <option value="highlighten">highlighten</option>
+                  <option value="synchronisieren">synchronisieren</option>
+                  <option value="auskegeln">auskegeln</option>
+                  <option value="manipulieren">manipulieren</option>
+                  <option value="pitchen">pitchen</option>
                 </select>
 				</div> <!-- /field -->
 				
