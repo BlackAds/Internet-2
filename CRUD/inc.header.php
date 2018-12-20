@@ -8,3 +8,23 @@
 <link href="bootstrap_responsive_admin_template/css/style.css" rel="stylesheet">
 <link href="bootstrap_responsive_admin_template/css/pages/dashboard.css" rel="stylesheet">
 <link href="bootstrap_responsive_admin_template/css/pages/signin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+//smoth scroll
+$(document).ready(function() {
+	$('a[href*=#]').bind("click", function(event) {
+		event.preventDefault();
+		var ziel = $(this).attr("href");
+                
+                if ($.browser.opera) {
+                    var target = 'html';
+                }else{
+                    var target = 'html,body';
+                }
+
+		$(target).animate({
+			scrollTop: $(ziel).offset().top
+		}, 15000 , function (){location.hash = ziel;});
+});
+return false;
+});
+	</script>
