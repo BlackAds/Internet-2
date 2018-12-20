@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -12,10 +13,22 @@
   <div class="container">
 
 
-<?php
-	  if(isset($_GET['success'])){
-		  echo '<div class="alert alert-success">                                                  <button type="button" class="close" data-dismiss="alert">&times;</button>                <strong>Super!</strong> Der Eintrag war erfolgreich.
-        </div>';
+<?php 
+	  if($_GET['logout']=='true'){
+		  session_destroy();
+		  echo '<meta http-equiv="refresh" content="0; URL=login.php">';
+		  die();
+	  }
+	  
+	  //Püfen ob der User eingeloggt ist
+	  if (!isset($_SESSION['user261290'])){
+		  echo '<meta http-equiv="refresh" content="0; URL=login.php">';
+		  die();
+	  }
+	  
+	  if(isset($_GET['delete'])){
+		  $db_query = "DELETE FROM `phrases` WHERE `ID` = " . $_GET['delete'] ;
+    		$delete_result = $link->query($db_query);    
 	  }
 	  
 	  //Phrasen aus der DB holen
@@ -40,6 +53,10 @@
                 <li class="from_user left"> <a href="#" class="avatar"><img src="bootstrap_responsive_admin_template/img/<?php echo $bild; ?>"/></a>
                   <div class="message_wrap">
                     <div class="info"> <a class="name"><?php echo $row['name']; ?></a> <span class="time"><?php echo $row['datum']; ?></span>
+					
+					<div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" href="admin.php?delete=<?php echo $row['ID']; ?>"><i class="icon-trash icon-large"></i> </a>
+                    </div>	
+						
                       <div class="options_arrow">
                         <div class="dropdown pull-right">
                         </div>
