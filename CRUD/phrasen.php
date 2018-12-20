@@ -11,60 +11,13 @@
 <div class="main-inner">
   <div class="container">
 
+
 <?php
-	//Prüfen ob Eintrag gemacht werden soll
-	if (isset($_POST['btn-save'])){
-		
-		if (empty($_POST['name'])){
-			$name = 'Anonymous';
-		}
-		else {
-		$name = $_POST['name'];
-		}
-		
-	$text = "I Say YES! to " . $_POST['phrase1'] . " " .  $_POST['phrase2'] . " " . $_POST['phrase3'];
-	
-	$db_query = "INSERT INTO
-                       phrases
-                            (name,
-							text,
-							insertdate
-                            )
-                    VALUES
-                            ('".$name."',
-							'".$text."',
-                             NOW()
-                            )
-                   ";
-            $result = $link->query($db_query);
-		
-	//Prüfen ob Fehler vorliegt
-	$message = ""; 
-      
-      $errorText = mysqli_error($link);
-      if (!empty($errorText)){ 
-		//Gescheitert
-        $message = $errorText;
-		?>
-	  	<div class="control-group">
-		<label class="control-label" >Alerts</label>
-		<div class="controls" >
-		<div class="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong >Warnung!</strong> <?php echo $message; ?>
-        </div>
-	  <?php
-      }
-      else {
-		 //Erfolgreich
-        $message = "Added phrase: " . $text . ". ";
-		  ?>
-	  	<div class="alert alert-success">                                                  <button type="button" class="close" data-dismiss="alert">&times;</button>                <strong>Super!</strong> Der Eintrag war erfolgreich.
-        </div>
-	  <?php
-		  
-      }    
-}
+	  if(isset($_GET['success'])){
+		  echo '<div class="alert alert-success">                                                  <button type="button" class="close" data-dismiss="alert">&times;</button>                <strong>Super!</strong> Der Eintrag war erfolgreich.
+        </div>';
+	  }
+	  
 	  //Phrasen aus der DB holen
 	  $db_query = "SELECT
                              ID,

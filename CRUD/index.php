@@ -11,6 +11,62 @@
 <div class="main-inner">
   <div class="container">
 
+<?php
+		  
+	//Prüfen ob Eintrag gemacht werden soll
+	if (isset($_POST['btn-save'])){
+		
+		if (empty($_POST['name'])){
+			$name = 'Anonymous';
+		}
+		else {
+		$name = $_POST['name'];
+		}
+		
+	$text = "I Say YES! to " . $_POST['phrase1'] . " " .  $_POST['phrase2'] . " " . $_POST['phrase3'];
+	
+	$db_query = "INSERT INTO
+                       phrases
+                            (name,
+							text,
+							insertdate
+                            )
+                    VALUES
+                            ('".$name."',
+							'".$text."',
+                             NOW()
+                            )
+                   ";
+            $result = $link->query($db_query);
+		
+	//Prüfen ob Fehler vorliegt
+	$message = ""; 
+      
+      $errorText = mysqli_error($link);
+      if (!empty($errorText)){ 
+		//Gescheitert
+        $message = $errorText;
+		?>
+	  	<div class="control-group">
+		<label class="control-label" >Alerts</label>
+		<div class="controls" >
+		<div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong >Warnung!</strong> <?php echo $message; ?>
+        </div>
+	  <?php
+      }
+      else {
+		  //E-Mail Script
+	include('inc.mail.php');
+		  
+		 //Erfolgreich
+        $message = "Added phrase: " . $text . ". ";		
+		echo '<meta http-equiv="refresh" content="0; URL=phrasen.php?success">';
+      }    
+}
+?>	  
+	  
 <div class="account-container">
 	
 <div class="content clearfix">
@@ -19,13 +75,13 @@
 			
 			<div class="login-fields">
 				
-				<p>Gib dein Name ein:</p>
-				
-				<form method="post" action="phrasen.php">
+				<form method="post" action="index.php">
 				
 				<div class="field">
-				<input type="text" name="name" maxlength="100"  class="login username-field">
+				<input type="text" name="name" maxlength="100"  class="login username-field" placeholder="Gib dein Name ein">
 				</div> <!-- /field -->
+					
+			</div> <!-- /login-fields -->
 					
 				<div class="field">
 				<select name="phrase1" style="width: 100%">
@@ -58,12 +114,10 @@
                   <option value="mit Pommes">mit Pommes</option>
                 </select>
 				</div> <!-- /field -->
-					
-				<div class="field">
-				<input type="text" name="name" maxlength="100"  class="login username-field">
-				</div> <!-- /field -->
 				
-			</div> <!-- /login-fields -->
+				<div class="field">
+					<input type="text" id="mail" name="mail" value="" placeholder="An E-Mail senden" class="login" style="width: 97%"/>
+				</div> <!-- /field -->
 			
 			<div class="login-actions">
 									

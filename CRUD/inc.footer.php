@@ -6,7 +6,7 @@
 			<script>
             var CurrentYear = new Date().getFullYear()
             document.write(CurrentYear)
-        </script> <a href="#" target="_blank">Sven Schwarzer</a> </div>
+        </script> <a href="#">Sven Schwarzer</a> </div>
         <!-- /span12 --> 
       </div>
       <!-- /row --> 
