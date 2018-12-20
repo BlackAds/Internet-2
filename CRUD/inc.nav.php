@@ -17,6 +17,7 @@
 		  <?php if(isset($_SESSION['user261290'])){
 		  echo '<li><a href="admin.php?logout=true"><i class="icon-ban-circle "></i><span>Logout</span> </a></li>';
 		  }?>
+		  <li><a target="_blank" href="https://github.com/BlackAds/Internet-2/tree/master/CRUD"><i class="icon-github-sign"></i><span>GitHub</span> </a> </li>
       </ul>
     </div>
     <!-- /container --> 
