@@ -29,12 +29,17 @@
                        phrases
                             (name,
 							text,
-							insertdate
+							insertdate,
+							lattitute,
+							longitude
                             )
                     VALUES
                             ('".$name."',
 							'".$text."',
-                             NOW()
+                             NOW(),
+							 '".$_POST['lattitute']."',
+							 '".$_POST['longitude']."'
+							 
                             )
                    ";
             $result = $link->query($db_query);
@@ -114,6 +119,14 @@
                   <option value="manipulieren">manipulieren</option>
                   <option value="pitchen">pitchen</option>
                 </select>
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<input type="text" id="lattitude" name="lattitude" value="" placeholder="lattitute" class="login" style="width: 97%"/>
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<input type="text" id="longitude" name="longitude" value="" placeholder="longitude" class="login" style="width: 97%"/>
 				</div> <!-- /field -->
 				
 				<div class="field">

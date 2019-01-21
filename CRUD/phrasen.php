@@ -23,7 +23,9 @@
                              ID,
 							 name,
 							 text,
-							 DATE_FORMAT(insertdate, '%d.%m.%Y %H:%i' ) as datum
+							 DATE_FORMAT(insertdate, '%d.%m.%Y %H:%i' ) as datum,
+							 lattitute,
+							 longitude
                      FROM
                              phrases
 					ORDER BY 
@@ -36,10 +38,16 @@
 		$bild = 'message_avatar'.rand(0,11).'.jpg';
 	  ?>
 	  
-              <ul class="messages_layout">
+              <ul class="messages_layout" id="<?php echo $row['ID']; ?>">
                 <li class="from_user left"> <a href="#" class="avatar"><img src="bootstrap_responsive_admin_template/img/<?php echo $bild; ?>"/></a>
                   <div class="message_wrap">
                     <div class="info"> <a class="name"><?php echo $row['name']; ?></a> <span class="time"><?php echo $row['datum']; ?></span>
+					
+					<div class="pull-right"> <a id="dLabel" role="button" href="detail.php?lat=<?php echo $row['lattitute']; ?>&long=<?php echo $row['longitude']; ?>&backlinkID=<?php echo $row['ID']; ?>"> <i class="icon-large icon-map-marker
+"></i> Karte </a>
+                          
+                        </div>	
+						
                       <div class="options_arrow">
                         <div class="dropdown pull-right">
                         </div>
