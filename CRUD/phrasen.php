@@ -43,7 +43,7 @@
                   <div class="message_wrap">
                     <div class="info"> <a class="name"><?php echo $row['name']; ?></a> <span class="time"><?php echo $row['datum']; ?></span>
 					
-					<div class="pull-right"> <a id="dLabel" role="button" href="detail.php?lat=<?php echo $row['lattitute']; ?>&long=<?php echo $row['longitude']; ?>&backlinkID=<?php echo $row['ID']; ?>"> <i class="icon-large icon-map-marker
+					<div class="pull-right"> <a id="dLabel" role="button" href="detail.php?ID=<?php echo $row['ID']; ?>"> <i class="icon-large icon-map-marker
 "></i> Karte </a>
                           
                         </div>	
