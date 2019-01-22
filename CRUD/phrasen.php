@@ -125,16 +125,18 @@
                 </select>
 				</div> <!-- /field -->
 				
+				
+				
 				<div class="field">
-					<input type="text" id="lattitude" name="lattitude" value="" placeholder="lattitute" class="login" style="width: 97%"/>
+					<input required type="number" id="lattitude" name="lattitude" value="" placeholder="lattitute" class="login" style="width: 97%"/>
 				</div> <!-- /field -->
 				
 				<div class="field">
-					<input type="text" id="longitude" name="longitude" value="" placeholder="longitude" class="login" style="width: 97%"/>
+					<input required type="number" id="longitude" name="longitude" value="" placeholder="longitude" class="login" style="width: 97%"/>
 				</div> <!-- /field -->
 				
 				<div class="field">
-					<input type="text" id="mail" name="mail" value="" placeholder="An E-Mail senden" class="login" style="width: 97%"/>
+					<input type="email" id="mail" name="mail" value="" placeholder="An E-Mail senden" class="login" style="width: 97%"/>
 				</div> <!-- /field -->
 			
 			<div class="login-actions">
