@@ -1,0 +1,40 @@
+        <link rel="stylesheet" type="text/css" href="pic-box/css/lib/control/iconselect.css" >
+        <script type="text/javascript" src="pic-box/lib/control/iconselect.js"></script>
+        
+        <script type="text/javascript" src="pic-box/lib/iscroll.js"></script>
+        
+        <script>
+            
+        var iconSelect;
+
+        window.onload = function(){
+
+            iconSelect = new IconSelect("my-icon-select", 
+                {'selectedIconWidth':50,
+                'selectedIconHeight':50,
+                'selectedBoxPadding':1,
+                'iconsWidth':50,
+                'iconsHeight':50,
+                'boxIconSpace':1,
+                'vectoralIconNumber':5,
+                'horizontalIconNumber':2});
+
+            var icons = [];
+            icons.push({'iconFilePath':'pic-box/images/icons/1.jpg', 'iconValue':'1', 'iconValue':'pic'});
+            icons.push({'iconFilePath':'pic-box/images/icons/2.jpg', 'iconValue':'2'});
+            icons.push({'iconFilePath':'pic-box/images/icons/3.jpg', 'iconValue':'3'});
+            icons.push({'iconFilePath':'pic-box/images/icons/4.jpg', 'iconValue':'4'});
+            icons.push({'iconFilePath':'pic-box/images/icons/5.jpg', 'iconValue':'5'});
+            icons.push({'iconFilePath':'pic-box/images/icons/6.jpg', 'iconValue':'6'});
+            icons.push({'iconFilePath':'pic-box/images/icons/7.jpg', 'iconValue':'7'});
+            icons.push({'iconFilePath':'pic-box/images/icons/8.jpg', 'iconValue':'8'});
+            icons.push({'iconFilePath':'pic-box/images/icons/9.jpg', 'iconValue':'9'});
+            icons.push({'iconFilePath':'pic-box/images/icons/10.jpg', 'iconValue':'10'});
+
+            
+            iconSelect.refresh(icons);
+
+        };
+            
+        </script>
+

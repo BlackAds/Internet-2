@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Home</title>
-<?php  include('inc.header.php'); ?>
+<?php  include('inc.header.php'); include('icon-select-example2.html');?>
 </head>
 <body>
 <?php include('inc.nav.php'); include('inc.sql.php'); ?>
@@ -27,14 +27,16 @@
 	
 	$db_query = "INSERT INTO
                        phrases
-                            (name,
+                            (pic,
+							name,
 							text,
 							insertdate,
 							lattitute,
 							longitude
                             )
                     VALUES
-                            ('".$name."',
+                            ('".$_POST['iconSelect']."',
+							'".$name."',
 							'".$text."',
                              NOW(),
 							 '".$_POST['lattitute']."',
@@ -82,6 +84,10 @@
 				
 				<form method="post" action="index.php">
 				
+				<!-- Auswahl des Avatars (pic-box) -->
+				<div id="my-icon-select"></div>
+				<br>
+					
 				<div class="field">
 				<input type="text" name="name" maxlength="100"  class="login username-field" placeholder="Gib dein Name ein">
 				</div> <!-- /field -->
