@@ -42,7 +42,7 @@
 ?>
 
 <div class="plan-actions">				
-	<a href="phrasen.php#<?php echo $_GET['ID']; ?>" class="btn"><i class="icon-large icon-arrow-left
+	<a href="index.php#<?php echo $_GET['ID']; ?>" class="btn"><i class="icon-large icon-arrow-left
 "></i> Zurück zur Liste</a>				
 </div> <!-- /plan-actions -->
 	 
