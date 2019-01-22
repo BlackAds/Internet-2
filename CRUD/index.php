@@ -25,16 +25,20 @@
 		
 	$text = "I Say YES! to " . $_POST['phrase1'] . " " .  $_POST['phrase2'] . " " . $_POST['phrase3'];
 	
+	$bild = 'message_avatar'.rand(0,11).'.jpg';	
+		
 	$db_query = "INSERT INTO
                        phrases
-                            (name,
+                            (pic,
+							name,
 							text,
 							insertdate,
 							lattitute,
 							longitude
                             )
                     VALUES
-                            ('".$name."',
+                            ('".$bild."',
+							'".$name."',
 							'".$text."',
                              NOW(),
 							 '".$_POST['lattitute']."',

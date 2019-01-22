@@ -24,6 +24,7 @@
 	  //Phrasen aus der DB holen
 	  $db_query = "SELECT
                              ID,
+							 pic,
 							 name,
 							 text,
 							 DATE_FORMAT(insertdate, '%d.%m.%Y %H:%i' ) as datum,
@@ -37,8 +38,7 @@
             $result = $link->query($db_query);
 	  
 	  $row = mysqli_fetch_assoc($result);
-	  
-	  $bild = 'message_avatar'.rand(0,11).'.jpg';
+;
 ?>
 
 <div class="plan-actions">				
@@ -65,7 +65,7 @@ var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<ul class="messages_layout">'+
-          '<li class="from_user left"> <a href="#" class="avatar"><img src="bootstrap_responsive_admin_template/img/<?php echo $bild; ?>"/></a>'+
+          '<li class="from_user left"> <a href="#" class="avatar"><img src="bootstrap_responsive_admin_template/img/<?php echo $row['pic']; ?>"/></a>'+
                   '<div class="message_wrap" style="border: 0px; box-shadow: none">'+
                     '<div class="info"> <a class="name"><?php echo $row['name']; ?></a> <span class="time"><?php echo $row['datum']; ?></span>'+
 					 '<div class="options_arrow">'+
