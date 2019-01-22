@@ -95,11 +95,11 @@
 					  <?php
 		  			if($_GET['edit'] == $row['ID']){
 						echo '<form method="get" action="admin.php?aktualisieren='.$row['ID'].'"><br>
-						<input style="width: 250px" type="text" name="name" value="'.$row['name'].'"><br>
-						<input style="width: 250px" type="text" name="text" value="'.$row['text'].'"><br>
-						<input style="width: 250px" type="text" name="lattitute" value="'.$row['lattitute'].'"><br>
-						<input style="width: 250px" type="text" name="longitude" value="'.$row['longitude'].'"><br>
-						<input type="hidden" name="akt_ID" value="'.$_GET['edit'].'">
+						<input required style="width: 250px" type="text" name="name" value="'.$row['name'].'"><br>
+						<input required style="width: 250px" type="text" name="text" value="'.$row['text'].'"><br>
+						<input required style="width: 250px" type="text" name="lattitute" value="'.$row['lattitute'].'"><br>
+						<input required style="width: 250px" type="text" name="longitude" value="'.$row['longitude'].'"><br>
+						<input  type="hidden" name="akt_ID" value="'.$_GET['edit'].'">
 						<input type="submit" name="aktualisieren" value="aktualisieren">';
 					}
 		  			else {
