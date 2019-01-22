@@ -18,8 +18,11 @@
 	  if (isset($_GET['aktualisieren'])){
 		  $db_query = "UPDATE 
 		  				`phrases` SET 
+							`name` = '" . $_GET['name'] . "', 
 							`text` = '" . $_GET['text'] . "', 
-							`insertdate` = NOW()
+							`insertdate` = NOW(),
+							`lattitute` = '" . $_GET['lattitute'] . "', 
+							`longitude` = '" . $_GET['longitude'] . "'
 						
 						WHERE `ID` = " . $_GET['akt_ID'] ;
      	$update_result = $link->query($db_query);
@@ -46,9 +49,12 @@
 	  //Phrasen aus der DB holen
 	  $db_query = "SELECT
                              ID,
+							 pic,
 							 name,
 							 text,
-							 DATE_FORMAT(insertdate, '%d.%m.%Y %H:%i' ) as datum
+							 DATE_FORMAT(insertdate, '%d.%m.%Y %H:%i' ) as datum,
+							 lattitute,
+							 longitude
                      FROM
                              phrases
 					ORDER BY 
@@ -57,9 +63,7 @@
             $result = $link->query($db_query);
 	  
 	  while($row = mysqli_fetch_assoc($result))
-				{
-		$bild = 'message_avatar'.rand(0,11).'.jpg';
-		  
+				{		  
 		 //Prüfen ob der Eintrag aktualisiert wurde
 		  $akt_info = "";
 		  if ($_GET['akt_ID']==$row['ID']){
@@ -68,15 +72,18 @@
 	  ?>
 	  
               <ul class="messages_layout">
-                <li class="from_user left"> <a href="#" class="avatar"><img src="bootstrap_responsive_admin_template/img/<?php echo $bild; ?>"/></a>
+                <li class="from_user left"> <a href="#" class="avatar"><img src="bootstrap_responsive_admin_template/img/<?php echo $row['pic']; ?>"/></a>
                   <div class="message_wrap" id="<?php echo $row['ID']; ?>">
-                    <div class="info"> <a class="name"><?php echo $row['name']; ?></a> <span class="time"><?php echo $row['datum'].' '.$akt_info; ?></span>
+                    <div class="info"> <a class="name"><?php echo $row['name']; ?></a> <span class="time"><?php echo $row['datum']; ?>
+						<strong>lat: </strong><?php echo $row['lattitute']; ?> | <strong>lng: </strong><?php echo $row['longitude']; ?></span>
+						&nbsp;&nbsp;<?php echo $akt_info; ?>
 					
 					<div class="dropdown pull-right"> <a class="dropdown-toggle " id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#"> <i class=" icon-caret-down"></i> </a>
                           <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <li>
+							<li>
 							<a href="admin.php?edit=<?php echo $row['ID'].'#'.$row['ID'] ?>"> <i class=" icon-pencil "></i> Bearbeiten</a></li>
                             <li><a href="admin.php?delete=<?php echo $row['ID']; ?>"><i class=" icon-trash icon-large"></i> Löschen</a></li>
+							
                           </ul>
                         </div>	
 					
@@ -87,8 +94,11 @@
                     </div>
 					  <?php
 		  			if($_GET['edit'] == $row['ID']){
-						echo '<form method="get" action="admin.php?aktualisieren='.$row['ID'].'">
-						<input style="width: 250px" type="text" name="text" value="'.$row['text'].'">
+						echo '<form method="get" action="admin.php?aktualisieren='.$row['ID'].'"><br>
+						<input style="width: 250px" type="text" name="name" value="'.$row['name'].'"><br>
+						<input style="width: 250px" type="text" name="text" value="'.$row['text'].'"><br>
+						<input style="width: 250px" type="text" name="lattitute" value="'.$row['lattitute'].'"><br>
+						<input style="width: 250px" type="text" name="longitude" value="'.$row['longitude'].'"><br>
 						<input type="hidden" name="akt_ID" value="'.$_GET['edit'].'">
 						<input type="submit" name="aktualisieren" value="aktualisieren">';
 					}
