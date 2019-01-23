@@ -128,7 +128,7 @@
 				
 				
 				<div class="field">
-					<input required type="number" id="lattitude" name="lattitude" value="" placeholder="lattitute" class="login" style="width: 97%"/>
+					<input required type="number" id="lattitute" name="lattitute" value="" placeholder="lattitute" class="login" style="width: 97%"/>
 				</div> <!-- /field -->
 				
 				<div class="field">
